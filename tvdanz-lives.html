@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonton TV Free</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            background: linear-gradient(45deg, #1e3c72, #2a5298, #ff7e5f, #feb47b);
+            background-size: 400% 400%;
+            animation: gradientMove 10s infinite alternate;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            padding: 50px 0;
+        }
+
+        .login-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+            width: 250px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            background: #f1f1f1;
+            border-radius: 6px;
+            padding: 8px;
+            margin: 8px 0;
+            width: 220px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 6px;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 14px;
+        }
+
+        .toggle-password {
+            cursor: pointer;
+            font-size: 14px;
+            color: rgba(128, 128, 128, 0.5);
+            margin-left: 8px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .login-box .login-btn { background: #ff5722; color: white; }
+        .login-box .login-btn:hover { background: #e64a19; }
+
+        .login-box .register-btn { background: #4caf50; color: white; }
+        .login-box .register-btn:hover { background: #388e3c; }
+
+        .logout-button {
+            margin-top: 20px;
+            padding: 6px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            display: none;
+            transition: background 0.3s;
+        }
+
+        .logout-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .tv-container {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding-bottom: 50px;
+        }
+
+        .tv-button {
+            display: block;
+            margin: 8px auto;
+            padding: 10px;
+            width: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .tv-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .creator-info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>♕ NONTON TV ♕</h2>
+
+    <button class="logout-button" onclick="logout()" id="logout-btn">Logout</button>
+
+    <div class="login-container" id="login">
+        <div class="login-box">
+            <h3>Login</h3>
+            <div class="input-container">
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" placeholder="Password">
+                <span class="toggle-password" onclick="togglePassword()">👁</span>
+            </div>
+            <button class="login-btn" onclick="checkLogin()">Masuk</button>
+            <button class="register-btn" onclick="register()">Daftar</button>
+        </div>
+    </div>
+
+    <div class="tv-container" id="tv-container">
+        <a href="https://www.parsatv.com/m/name=Spacetoon" class="tv-button">Spacetoon</a>
+        <a href="https://m.vidio.com/live/205-indosiar" class="tv-button">Indosiar</a>
+        <a href="https://m.vidio.com/live/1561-rtv" class="tv-button">Rtv</a>
+        <a href="https://m.rctiplus.com/tv/inews" class="tv-button">Inews</a>
+        <a href="https://www.indihometv.com/livetv/antv" class="tv-button">ANTV</a>
+        <a href="https://m.rctiplus.com/tv/rcti" class="tv-button">RCTI</a>
+        <a href="https://www.indihometv.com/livetv/transtv" class="tv-button">Trans TV</a>
+        <a href="https://www.indihometv.com/livetv/indikids" class="tv-button">IndiKids</a>
+        <a href="https://www.vnews.mv/streaming/vtv" class="tv-button">VTV</a>
+        <a href="https://m.vidio.com/live/205-indosiar" class="tv-button">Indosiar</a>
+        <a href="https://m.vidio.com/live/783-tvone" class="tv-button">TV One</a>
+        <a href="https://m.vidio.com/live/7619-musica" class="tv-button">Musica</a>
+        <a href="https://m.rctiplus.com/tv/mnctv" class="tv-button">Mnctv</a>
+        <a href="https://m.rctiplus.com/tv/gtv" class="tv-button">Gtv</a>
+        <a href="https://m.vidio.com/live/204-sctv-tv-stream/embed?autoplay=true&player_only=true&live_chat=false&mute=false&" class="tv-button">Sctv</a>
+        <a href="https://www.cubmu.com/play/live-tv?id=4028c68574537fcd0174be4997e958db&genreId=10" class="tv-button">CNN</a>
+        <a href="https://m.vidio.com/live/7464-ajwa-tv?utm_medium=epg_tv_schedule" class="tv-button">Ajwa TV</a>
+    </div>
+
+    <p class="creator-info">Dibuat oleh: <strong>Danz</strong> | Kontak: <a href="https://wa.me/62895323195263" style="color: white; text-decoration: none;">62895323195263</a></p>
+
+    <script>
+        function checkLogin() {
+            var username = document.getElementById("username").value.trim();
+            var password = document.getElementById("password").value.trim();
+
+            if (username === "" || password === "") {
+                alert("Username dan password tidak boleh kosong!");
+                return;
+            }
+
+            var storedUsers = JSON.parse(localStorage.getItem("users")) || {};
+            if (!storedUsers[username] || storedUsers[username] !== password) {
+                alert("Username atau password salah!");
+                return;
+            }
+
+            localStorage.setItem("isLoggedIn", "true");
+            document.getElementById("login").style.display = "none";
+            document.getElementById("logout-btn").style.display = "block";
+            document.getElementById("tv-container").style.display = "block";
+        }
+
+        function register() {
+            var username = document.getElementById("username").value.trim();
+            var password = document.getElementById("password").value.trim();
+
+            if (username === "" || password === "") {
+                alert("Username dan password tidak boleh kosong!");
+                return;
+            }
+
+            var storedUsers = JSON.parse(localStorage.getItem("users")) || {};
+            if (storedUsers[username]) {
+                alert("Username sudah terdaftar! Silakan gunakan username lain.");
+                return;
+            }
+
+            storedUsers[username] = password;
+            localStorage.setItem("users", JSON.stringify(storedUsers));
+            alert("Pendaftaran berhasil! Silakan login.");
+        }
+
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            document.getElementById("login").style.display = "flex";
+            document.getElementById("logout-btn").style.display = "none";
+            document.getElementById("tv-container").style.display = "none";
+        }
+
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+
+        window.onload = function () {
+            if (localStorage.getItem("isLoggedIn") === "true") {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("logout-btn").style.display = "block";
+                document.getElementById("tv-container").style.display = "block";
+            }
+        };
+    </script>
+
+</body>
+</html>
